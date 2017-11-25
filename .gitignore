@@ -1,0 +1,8 @@
+# emacs #
+##############
+*~
+
+# project-specific #
+################
+# be careful about this - the idea is that my real config settings will be kept in config.lua-<SOMETHING>
+config.lua-*
