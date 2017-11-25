@@ -1,7 +1,8 @@
 
 -- --------- -- wifi
-SSID = "wireless0n"
-PASSWORD = "wifi password goes here"
+WIFI_CONFIG = {}
+WIFI_CONFIG.ssid = "wireless0n"
+WIFI_CONFIG.pwd = "wifi password goes here"
 MY_IP = "172.16.78.51"
 
 -- --------- -- mqqt
@@ -19,6 +20,8 @@ DHT_PORT = 4
 --DHT_PORT = 2
 
 -- --------- -- operation
+KEEPALIVE_OVERHEAD_SEC = 30
+
 --SLEEP_USEC = 5000000 -- 5s
 --SLEEP_USEC = 300000000 -- 5m
 --SLEEP_USEC = 10000000 -- 10s
