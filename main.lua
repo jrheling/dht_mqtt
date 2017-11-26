@@ -38,9 +38,6 @@ end
 
 function mainloop(client) 
    m:publish("uptime".."/"..LOCATION_ID,tmr.time(),1,0, function(client) print("sent uptime") end) 
-   m:lwt("/lwt", LOCATION_ID.." is offline", 0, 0) -- setup Last Will and Testament (optional)
-                                                   -- Broker will publish a message with qos = 0, retain = 0, data = "offline" 
-                                                   -- to topic "/lwt" if client don't send keepalive  packet
 
    temp, humi = get_temp()
    if (temp ~= nil) then
@@ -56,7 +53,7 @@ function mainloop(client)
    end
 end
 
-function handle_mqtt_error(client, reasno)
+function handle_mqtt_error(client, reason)
    print("Failed to connect to MQTT server, reason: "..reason)
    tmr.create():alarm(10 * 1000, tmr.ALARM_SINGLE, do_mqtt_connect)
 end
