@@ -10,7 +10,7 @@ MQTT_SVR = "mymqtt-srv.domain.com"
 LOCATION_ID = "shop"
 
 -- --------- -- DHT22 sensor
--- NB: DHT_PORT can't be 0
+-- NB: DHT_PORT cannot be 0
 --  (hardware nb: port is connected to +3.3v w/ 10k resistor)
 
 -- this is Huzzah 8266 board pin #2, which corresponds to NodeMCU pin 4
@@ -20,6 +20,7 @@ DHT_PORT = 4
 --DHT_PORT = 2
 
 -- --------- -- operation
+WATCHDOG_INTERVAL = 20 -- seconds
 KEEPALIVE_OVERHEAD_SEC = 30
 
 --SLEEP_USEC = 5000000 -- 5s

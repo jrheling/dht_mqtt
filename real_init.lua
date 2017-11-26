@@ -11,6 +11,10 @@ end
 -- FIXME: better to use nodemcu's built-in wifi cred mgmt stuff
 dofile("config.lua")
 
+-- set up software watchdog - this is our catch-all recovery method
+--   (forced reboot after WATCHDOG_INTERVAL seconds)
+tmr.softwd(WATCHDOG_INTERVAL)
+
 -- reg wifi callback
 wifi.eventmon.register(wifi.eventmon.STA_CONNECTED, function(T)
 			  print("connected to WiFi SSID: "..T.SSID)
