@@ -1,7 +1,7 @@
 
 -- make sure we've got the ADC in the correct mode for reading voltage
 if adc.force_init_mode(adc.INIT_VDD33)
-then
+then -- this only happens once per board (barring external changes)
    print("changing ADC mode to INIT_VDD33 and restarting")
    node.restart()
    return
@@ -15,7 +15,7 @@ dofile("config.lua")
 wifi.eventmon.register(wifi.eventmon.STA_CONNECTED, function(T)
 			  print("connected to WiFi SSID: "..T.SSID)
 			  print("Running main.lua in 3 seconds...")  -- FIXME: remove this after more testing
-			  tmr.alarm(0, 3000, 0, function() dofile("main.lua") end)
+			  tmr.create():alarm(3000, tmr.ALARM_SINGLE, function() dofile("main.lua") end)
 end)
 
 -- connect
