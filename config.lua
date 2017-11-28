@@ -1,5 +1,6 @@
 
 -- --------- -- wifi
+-- FIXME: better to use the nodemcu built-in wifi cred mgmt stuff
 WIFI_CONFIG = {}
 WIFI_CONFIG.ssid = "wireless0n"
 WIFI_CONFIG.pwd = "wifi password goes here"
@@ -18,6 +19,9 @@ DHT_PORT = 4
 
 -- this is Sparkfun Thing 8266 board pin #4, which corresponds to NodeMCU pin 2
 --DHT_PORT = 2
+
+-- maintenance mode button (when held down, we skip init)
+MAINT_PORT = 1 -- Huzzah board pin #5
 
 -- --------- -- operation
 WATCHDOG_INTERVAL = 20 -- seconds

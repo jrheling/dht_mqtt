@@ -6,4 +6,13 @@ the purpose of this file is to make it easy to blow it away from a device (e.g. 
 and still interactively run the code (via 'dofile("real_init.lua") from a serial console)
 
 ]]
-dofile("real_init.lua")
+dofile("config.lua")
+
+gpio.mode(MAINT_PORT, gpio.INPUT, gpio.PULLUP)
+if (gpio.read(MAINT_PORT) == 0) -- button is pressed - skip init
+then
+   print "entering maintenance mode"
+else
+   dofile("real_init.lua")
+end
+

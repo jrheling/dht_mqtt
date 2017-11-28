@@ -7,19 +7,18 @@ then -- this only happens once per board (barring external changes)
    return
 end
 
--- load credentials, 'SSID' and 'PASSWORD' declared and initialize in there
--- FIXME: better to use nodemcu's built-in wifi cred mgmt stuff
-dofile("config.lua")
-
 -- set up software watchdog - this is our catch-all recovery method
 --   (forced reboot after WATCHDOG_INTERVAL seconds)
 tmr.softwd(WATCHDOG_INTERVAL)
 
 -- reg wifi callback
 wifi.eventmon.register(wifi.eventmon.STA_CONNECTED, function(T)
-			  print("connected to WiFi SSID: "..T.SSID)
+			  print("connected to WiFi SSID: "..T.SSID)			  
+			  dofile("main.lua")
+--[[
 			  print("Running main.lua in 3 seconds...")  -- FIXME: remove this after more testing
 			  tmr.create():alarm(3000, tmr.ALARM_SINGLE, function() dofile("main.lua") end)
+]]
 end)
 
 -- connect
