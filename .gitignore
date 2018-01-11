@@ -6,3 +6,6 @@
 ################
 # be careful about this - the idea is that my real config settings will be kept in config.lua-<SOMETHING>
 config.lua-*
+
+# these are of no real structure, or interest to anybody else
+logs/
