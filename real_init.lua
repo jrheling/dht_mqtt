@@ -1,8 +1,8 @@
 
 -- make sure we've got the ADC in the correct mode for reading voltage
-if adc.force_init_mode(adc.INIT_VDD33)
+if adc.force_init_mode(adc.INIT_ADC)
 then -- this only happens once per board (barring external changes)
-   print("changing ADC mode to INIT_VDD33 and restarting")
+   print("changing ADC mode to INIT_ADC and restarting")
    node.restart()
    return
 end

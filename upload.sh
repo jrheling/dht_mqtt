@@ -7,7 +7,7 @@
 set -e
 
 # FTDI cable
-export SERIALPORT=/dev/ttyUSB1
+export SERIALPORT=/dev/ttyUSB0
 #export SERIALPORT=/dev/tty.usbserial-AK059AKS
 #export SERIALPORT=/dev/tty.usbserial-FTDOPA5M
 

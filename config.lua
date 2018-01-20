@@ -2,13 +2,14 @@
 -- --------- -- wifi
 -- FIXME: better to use the nodemcu built-in wifi cred mgmt stuff
 WIFI_CONFIG = {}
-WIFI_CONFIG.ssid = "wireless0n"
-WIFI_CONFIG.pwd = "wifi password goes here"
+WIFI_CONFIG.ssid = "willowbend"
+WIFI_CONFIG.pwd = "now is the ti"
+
 MY_IP = "172.16.78.51"
 
 -- --------- -- mqqt
-MQTT_SVR = "mymqtt-srv.domain.com"
-LOCATION_ID = "shop"
+MQTT_SVR = "web.netfluvia.org"
+LOCATION_ID = "test-huzzah"
 
 -- --------- -- DHT22 sensor
 -- NB: DHT_PORT cannot be 0
@@ -23,6 +24,9 @@ DHT_PORT = 4
 -- maintenance mode button (when held down, we skip init)
 MAINT_PORT = 1 -- Huzzah board pin #5
 
+-- analog I/O port (used for reading voltage)
+VOLTAGE_PORT = 0
+
 -- --------- -- operation
 WATCHDOG_INTERVAL = 20 -- seconds
 KEEPALIVE_OVERHEAD_SEC = 30
@@ -31,3 +35,4 @@ KEEPALIVE_OVERHEAD_SEC = 30
 --SLEEP_USEC = 300000000 -- 5m
 --SLEEP_USEC = 10000000 -- 10s
 SLEEP_USEC = 600000000 -- 10m
+

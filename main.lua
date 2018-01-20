@@ -26,7 +26,7 @@ m:lwt("/lwt", LOCATION_ID.." is offline", 0, 0) -- setup Last Will and Testament
                                                 -- to topic "/lwt" if client don't send keepalive  packet
 
 -- http://stackoverflow.com/questions/41523890/with-lua-nodemcu-how-can-i-wait-until-1-mqtt-publish-calls-have-been-made-befo
-expectedPUBACK = 4 -- how many times does the PUBACK callback need to be called before we sleep?
+expectedPUBACK = 3 -- how many times does the PUBACK callback need to be called before we sleep?
                    -- FIXME: this is a nasty hack; need to wrap in something smarter that will
                    -- figure out the correct # on its own
 function puback_cb() 
@@ -37,7 +37,7 @@ function puback_cb()
 end		
 
 function mainloop(client) 
-   m:publish("uptime".."/"..LOCATION_ID,tmr.time(),1,0, function(client) print("sent uptime") end) 
+--   m:publish("uptime".."/"..LOCATION_ID,tmr.time(),1,0, function(client) print("sent uptime") end) 
 
    temp, humi = get_temp()
    if (temp ~= nil) then
