@@ -1,13 +1,22 @@
--- sense temp using DHT22
-
--- based on http://nodemcu.readthedocs.io/en/master/en/modules/dht/
+-- sense temp using DS18B20
 
 --pin = DHT_PORT
 
--- returns nil on error, else tmp,hum tuple
+-- returns nil on error, else temp in C
 	-- returns values 1000x actual (3 decimal digits expressed as int)
-	--   e.g. 23.15 degrees is 23150
+--   e.g. 23.15 degrees is 23150
+
+-- Note: assumes only one device on the 1Wire bus. (FIXME)
+
+///// START HERE - this feels un-luaish. Need to figure out how to deal w/ asynchronity in the context of the function call
+
+   ****************************************************************
+   I'm fighting too hard against the way lua wants to do this. Stop. Don't. Go with the flow - main() needs rearchitecture to work with callbacks rather than a synchronous get_temp()
+   
 function get_temp()
+
+
+   
    status, temp, humi, temp_dec, humi_dec = dht.read(DHT_PORT)
    if status == dht.OK then
       -- Integer firmware using this example

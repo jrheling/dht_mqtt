@@ -9,3 +9,5 @@ config.lua-*
 
 # these are of no real structure, or interest to anybody else
 logs/
+ds18b20.lua
+ds18b20_test.lua

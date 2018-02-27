@@ -5,21 +5,21 @@ WIFI_CONFIG = {}
 WIFI_CONFIG.ssid = "willowbend"
 WIFI_CONFIG.pwd = "now is the ti"
 
-MY_IP = "172.16.78.51"
+MY_IP = "172.16.78.53"
 
 -- --------- -- mqqt
-MQTT_SVR = "web.netfluvia.org"
-LOCATION_ID = "test-huzzah"
+MQTT_SVR = "allyourbase.netfluvia.org"
+LOCATION_ID = "test-num1"
 
 -- --------- -- DHT22 sensor
 -- NB: DHT_PORT cannot be 0
 --  (hardware nb: port is connected to +3.3v w/ 10k resistor)
 
 -- this is Huzzah 8266 board pin #2, which corresponds to NodeMCU pin 4
-DHT_PORT = 4 
+TEMP_PORT = 4
 
 -- this is Sparkfun Thing 8266 board pin #4, which corresponds to NodeMCU pin 2
---DHT_PORT = 2
+--TEMP_PORT = 2
 
 -- maintenance mode button (when held down, we skip init)
 MAINT_PORT = 1 -- Huzzah board pin #5
